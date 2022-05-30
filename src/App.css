@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.realHeader nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.realHeader nav ul li{
+  list-style: none;
+  font-size: 1.5rem;
+  margin: 1rem;
+  position:initial;
+}
