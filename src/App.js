@@ -2,7 +2,8 @@
 import './App.css';
 import Body from './components/body';
 import ItemListContainer from './components/componentsContainer/ItemListContainer';
-import NavBar from './components/navbar';
+import NavBar from './components/NavBar/navbar';
+
 
 
 

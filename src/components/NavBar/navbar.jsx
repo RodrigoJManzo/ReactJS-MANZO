@@ -1,5 +1,5 @@
-import CartWidget from './cartWidget/cartWidget'
-import icoCart from './images/shoppCart.png'
+import CartWidget from '../cartWidget/cartWidget'
+import icoCart from '../images/shoppCart.png'
 
 
 export default function NavBar(){
