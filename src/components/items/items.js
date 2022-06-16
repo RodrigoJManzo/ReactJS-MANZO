@@ -44,3 +44,27 @@ export const Item = () =>{
         }, 2000)
     })
 }
+
+
+
+
+let producto = {
+    id:"1",
+    nombre: "Tarjeta de Video",
+    modelo: "RTX3060",
+    precio: "US$800",
+    picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg"
+}
+
+export const ItemSingle = (id) =>{
+    return new Promise ((resolve, reject)=>{
+        setTimeout(()=>{
+            if(id){
+                resolve(producto.find(prod => prod.id === id))
+            }else{
+                resolve(producto)
+            }
+            
+        }, 2000)
+    })
+}

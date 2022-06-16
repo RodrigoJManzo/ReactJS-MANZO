@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Item } from "./items";
+import { ItemSingle } from "./items";
 
 
 export const ItemList = () =>{
@@ -54,7 +55,7 @@ export const ItemList = () =>{
                 
                                                 <div class="text-muted mb-3">{producto.modelo}</div>
                 
-                                                <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                                                <button type="button" onClick={ItemSingle} class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                 
                                                         
                                             </div>

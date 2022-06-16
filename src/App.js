@@ -3,6 +3,7 @@ import './App.css';
 import Body from './components/body';
 import ItemListContainer from './components/componentsContainer/ItemListContainer';
 import NavBar from './components/NavBar/navbar';
+import ItemDetailContainer from './components/componentsContainer/ItemDetailContainer';
 
 
 
@@ -16,8 +17,7 @@ function App (){
     <>
     <NavBar/>
     <ItemListContainer/>
-    {/* <Body/> //es el body de la app de react que no lo he borrado aun */}
-  
+    <ItemDetailContainer/>
     </>
     
   )
