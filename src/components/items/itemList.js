@@ -56,7 +56,7 @@ export const ItemList = () =>{
                                                         <Link to={`/detail/${producto.id}`} class="text-default mb-2" data-abc="true">{producto.nombre}</Link>
                                                     </h6>
                 
-                                                         <a href="#" class="text-muted" data-abc="true">{producto.categoria}</a>
+                                                         <Link to={`/categoria/${producto.categoria}`} class="text-muted" data-abc="true">{producto.categoria}</Link>
                                                 </div>
                 
                                                 <h3 class="mb-0 font-weight-semibold">{producto.precio}</h3>
