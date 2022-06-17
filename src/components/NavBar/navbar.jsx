@@ -15,19 +15,19 @@ export default function NavBar(){
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                            <NavLink className="nav-link active" aria-current="page" to="/">Tarjetas de Video</NavLink>
+                            <NavLink className="nav-link active" aria-current="page" to="/categoria/TarjetasDeVideo">Tarjetas de Video</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link active" to="/">Monitores</NavLink>
+                            <NavLink className="nav-link active" to="/categoria/Monitores">Monitores</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link active" to="/">Mothers</NavLink>
+                            <NavLink className="nav-link active" to="/categoria/Mothers">Mothers</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link active" to="/">Perifericos</NavLink>
+                            <NavLink className="nav-link active" to="/categoria/Perifericos">Perifericos</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link active" to="/">Procesadores</NavLink>
+                            <NavLink className="nav-link active" to="/categoria/Procesadores">Procesadores</NavLink>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">

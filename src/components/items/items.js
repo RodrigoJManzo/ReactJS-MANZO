@@ -1,10 +1,13 @@
+import {useParams} from 'react-router-dom'
+
+
 let productos = [
     {
         id:"1",
         nombre: "Tarjeta de Video",
         modelo: "RTX3060",
         precio: "US$800",
-        categoria: "Tarjetas de Video",
+        categoria: "TarjetasDeVideo",
         picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg"
     },
     {
@@ -58,17 +61,20 @@ let producto = {
     nombre: "Tarjeta de Video",
     modelo: "RTX3060",
     precio: "US$800",
-    categoria: "Tarjetas de Video",
+    categoria: "TarjetasDeVideo",
     picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg"
 }
+
+
+
 
 export const ItemSingle = (id) =>{
     return new Promise ((resolve, reject)=>{
         setTimeout(()=>{
             if(id){
-                resolve(producto.find(prod => prod.id === id))
+                resolve(productos.find(productos => productos.id === id))
             }else{
-                resolve(producto)
+                resolve(productos)
             }
             
         }, 2000)

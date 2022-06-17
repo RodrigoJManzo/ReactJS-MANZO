@@ -2,20 +2,34 @@ import { useEffect, useState } from "react";
 import { Item } from "./items";
 import { ItemSingle } from "./items";
 import {Link, NavLink} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 
 export const ItemList = () =>{
 
     const [productos, setProductos] = useState([])
 
+    const {categoriaId} = useParams()
+    console.log(categoriaId)
+
     useEffect(()=>{
-        Item ()
+        if (categoriaId) {
+            Item ()
+            .then((resp)=>{
+                    setProductos(resp.filter(productos=>productos.categoria === categoriaId))
+            })
+            .catch(err=> console.log(err))
+            .finally(()=>console.log()) 
+        } else {
+            Item ()
             .then((resp)=>{
                     setProductos(resp)
             })
             .catch(err=> console.log(err))
-            .finally(()=>console.log())
-    }, [])
+            .finally(()=>console.log()) 
+        }
+        
+    }, [categoriaId])
 
     return(
 

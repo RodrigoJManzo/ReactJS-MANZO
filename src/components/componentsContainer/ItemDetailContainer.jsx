@@ -7,14 +7,21 @@ import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
-  const [producto, setProducto] = useState({})
+  const [productos, setProductos] = useState({})
 
   const {id} = useParams()
 
   useEffect(()=>{
-    ItemSingle()
-      .then((resp)=>{setProducto(resp)})
+    if (id) {
+      ItemSingle()
+      .then((resp)=>{setProductos(resp.find(productos=>productos.id === id))})
       .catch((err)=>console.log(err))
+    } else {
+      ItemSingle()
+      .then((resp)=>{setProductos(resp)})
+      .catch((err)=>console.log(err))
+    }
+    
   }, [])
 
     
@@ -24,14 +31,14 @@ const ItemDetailContainer = () => {
 
       <div className='col-md-6'>
 
-        <img src= {producto.picureURL}  alt="" className='w-100' />
+        <img src= {productos.picureURL}  alt="" className='w-100' />
 
       </div>
 
       <div className='col-md-6'>
-        <h2>Nombre: {producto.nombre} </h2>
-        <h3>Precio: {producto.precio}</h3>
-        <h4>Modelo: {producto.modelo}</h4>
+        <h2>Nombre: {productos.nombre} </h2>
+        <h3>Precio: {productos.precio}</h3>
+        <h4>Modelo: {productos.modelo}</h4>
         <>
         <ItemCounter stock='5' initial = '1' />
         </>
