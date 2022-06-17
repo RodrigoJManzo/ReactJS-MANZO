@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Item } from "./items";
 import { ItemSingle } from "./items";
+import {Link, NavLink} from 'react-router-dom'
 
 
 export const ItemList = () =>{
@@ -38,7 +39,7 @@ export const ItemList = () =>{
                                             <div class="card-body bg-light text-center">
                                                 <div class="mb-2">
                                                     <h6 class="font-weight-semibold mb-2">
-                                                        <a href="#" class="text-default mb-2" data-abc="true">{producto.nombre}</a>
+                                                        <Link to={`/detail/${producto.id}`} class="text-default mb-2" data-abc="true">{producto.nombre}</Link>
                                                     </h6>
                 
                                                          <a href="#" class="text-muted" data-abc="true">{producto.categoria}</a>

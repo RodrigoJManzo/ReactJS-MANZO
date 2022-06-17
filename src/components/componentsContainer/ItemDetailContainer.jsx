@@ -3,10 +3,13 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { ItemSingle } from '../items/items'
 import ItemCounter from '../itemCount/itemCount'
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
   const [producto, setProducto] = useState({})
+
+  const {id} = useParams()
 
   useEffect(()=>{
     ItemSingle()
