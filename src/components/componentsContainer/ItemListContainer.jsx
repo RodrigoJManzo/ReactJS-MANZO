@@ -14,11 +14,8 @@ function ItemListContainer (){
     return(
         <>
         <Titulo tituloApp={title} subTituloApp={subTitle}/>
-        <ItemCounter stock='5' initial = '1' />
         <ItemList/>
         </>
-
-
     )
 }
 

@@ -41,7 +41,7 @@ export const ItemList = () =>{
                                                         <a href="#" class="text-default mb-2" data-abc="true">{producto.nombre}</a>
                                                     </h6>
                 
-                                                         <a href="#" class="text-muted" data-abc="true">SUPERTEC</a>
+                                                         <a href="#" class="text-muted" data-abc="true">{producto.categoria}</a>
                                                 </div>
                 
                                                 <h3 class="mb-0 font-weight-semibold">{producto.precio}</h3>

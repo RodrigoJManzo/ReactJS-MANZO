@@ -1,5 +1,6 @@
 import CartWidget from '../cartWidget/cartWidget'
 import icoCart from '../images/shoppCart.png'
+import {Link, NavLink} from 'react-router-dom'
 
 
 export default function NavBar(){
@@ -10,17 +11,23 @@ export default function NavBar(){
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
-                    <a className="navbar-brand" href="#">SUPERTEC</a>
+                    <NavLink className="navbar-brand" to="/">SUPERTEC</NavLink>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <NavLink className="nav-link active" aria-current="page" to="/">Tarjetas de Video</NavLink>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link active" href="#">Productos</a>
+                            <NavLink className="nav-link active" to="/">Monitores</NavLink>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link active" href='#'>Nosotros</a>
+                            <NavLink className="nav-link active" to="/">Mothers</NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink className="nav-link active" to="/">Perifericos</NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink className="nav-link active" to="/">Procesadores</NavLink>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">

@@ -1,12 +1,13 @@
 import icoCart from '../images/shoppCart.png'
+import {Link, NavLink} from 'react-router-dom'
 
 function CartWidget(){
     return(
-        <a href="">
+        <Link to='/Cart'>
             <i>
                 <img className="imageCart" src={icoCart} alt="icono del Shopping Cart" />
             </i>
-        </a>
+        </Link>
     )
 }
 

@@ -1,9 +1,10 @@
 
 import './App.css';
-import Body from './components/body';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ItemListContainer from './components/componentsContainer/ItemListContainer';
 import NavBar from './components/NavBar/navbar';
 import ItemDetailContainer from './components/componentsContainer/ItemDetailContainer';
+import CartWidget from './components/cartWidget/cartWidget';
 
 
 
@@ -14,11 +15,17 @@ function App (){
   
 
   return(
-    <>
-    <NavBar/>
-    <ItemListContainer/>
-    <ItemDetailContainer/>
-    </>
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route index path="/" element={<ItemListContainer/>}/>
+        <Route path="/detail" element={<ItemDetailContainer/>}/>
+        <Route path="/Cart" element={<CartWidget/>}/>
+
+      <Route path="*" element={<Navigate to= '/'/>}/>
+
+      </Routes>
+    </BrowserRouter>
     
   )
 }
