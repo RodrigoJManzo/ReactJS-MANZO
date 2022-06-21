@@ -8,7 +8,8 @@ let productos = [
         modelo: "RTX3060",
         precio: "US$800",
         categoria: "TarjetasDeVideo",
-        picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg"
+        picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg",
+        stock: "5"
     },
     {
         id:"2",
@@ -16,7 +17,8 @@ let productos = [
         modelo: "MSI Optix 27",
         precio: "US$500",
         categoria: "Monitores",
-        picureURL:"https://asset.msi.com/resize/image/global/product/product_16073221819eda271d0012e9dafad761ec039b1fdd.png62405b38c58fe0f07fcef2367d8a9ba1/600.png"
+        picureURL:"https://asset.msi.com/resize/image/global/product/product_16073221819eda271d0012e9dafad761ec039b1fdd.png62405b38c58fe0f07fcef2367d8a9ba1/600.png",
+        stock: "7"
     },
     {
         id:"3",
@@ -24,7 +26,8 @@ let productos = [
         modelo: "MSI Plus",
         precio: "US$400",
         categoria: "Mothers",
-        picureURL:"https://asset.msi.com/resize/image/global/product/product_3_20190716132640_5d2d601054421.png62405b38c58fe0f07fcef2367d8a9ba1/600.png"
+        picureURL:"https://asset.msi.com/resize/image/global/product/product_3_20190716132640_5d2d601054421.png62405b38c58fe0f07fcef2367d8a9ba1/600.png",
+        stock: "8"
     },
     {
         id:"4",
@@ -32,7 +35,8 @@ let productos = [
         modelo: "Rzer Viper y Razer Chroma",
         precio: "US$120",
         categoria: "Perifericos",
-        picureURL:"https://febo.com.uy/wp-content/uploads/2019/12/674715-MLU40076653944_122019-O-277x217.jpg"
+        picureURL:"https://febo.com.uy/wp-content/uploads/2019/12/674715-MLU40076653944_122019-O-277x217.jpg",
+        stock: "5"
     },
     {
         id:"5",
@@ -40,7 +44,8 @@ let productos = [
         modelo: "Ryzen 9",
         precio: "US$700",
         categoria: "Procesadores",
-        picureURL: "https://www.amd.com/system/files/styles/600px/private/2019-11/238593-ryzen-9-pib-left-facing-1260x709_0.png?itok=EKzdDkTN"
+        picureURL: "https://www.amd.com/system/files/styles/600px/private/2019-11/238593-ryzen-9-pib-left-facing-1260x709_0.png?itok=EKzdDkTN",
+        stock: "10"
     }
 ]
 
@@ -52,20 +57,6 @@ export const Item = () =>{
         }, 2000)
     })
 }
-
-
-
-
-let producto = {
-    id:"1",
-    nombre: "Tarjeta de Video",
-    modelo: "RTX3060",
-    precio: "US$800",
-    categoria: "TarjetasDeVideo",
-    picureURL:"https://images.nvidia.com/aem-dam/Solutions/geforce/ampere/rtx-3060-ti/geforce-rtx-3060-ti-product-gallery-full-screen-3840-2-bl.jpg"
-}
-
-
 
 
 export const ItemSingle = (id) =>{

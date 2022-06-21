@@ -6,21 +6,14 @@ function ItemCounter ({stock, initial, onAdd}){
     function Agregar(){
         if(cont < stock){
             addCount(cont + 1)
-        }else{
-            addCount(cont = stock)
-        }
-        
+        }        
     }
 
     function Restar(){
-        if(cont > 0){
-            addCount(cont - 1)
-        }else{
-            addCount(cont = initial)
-        }
-        
+        if(cont > initial){
+            addCount(cont - 1)       
 
-    }
+    }}
     
     function onAdd(){
         console.log(`Has agregado ${cont} items a tu carrito`)
