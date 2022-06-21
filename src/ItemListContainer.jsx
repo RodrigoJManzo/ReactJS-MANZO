@@ -1,8 +1,8 @@
 
 
-import ItemCounter from "../itemCount/itemCount";
-import Titulo from "../Titulo/titulo";
-import { ItemList } from "../items/itemList";
+import ItemCounter from "./itemCount";
+import Titulo from "./titulo";
+import { ItemList } from "./itemList";
 import {useParams} from 'react-router-dom'
 
 
