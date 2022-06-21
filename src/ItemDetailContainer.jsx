@@ -40,7 +40,7 @@ const ItemDetailContainer = () => {
         <h3>Precio: {productos.precio}</h3>
         <h4>Modelo: {productos.modelo}</h4>
         <>
-        <ItemCounter stock={5} initial = {1} />
+        <ItemCounter stock={productos.stock} initial = {1} />
         </>
       </div>
 
