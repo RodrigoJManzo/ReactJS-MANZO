@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import {ItemSingle} from './items'
 import ItemCounter from './itemCount'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
@@ -49,3 +49,5 @@ const ItemDetailContainer = () => {
 }
 
 export default ItemDetailContainer
+
+
