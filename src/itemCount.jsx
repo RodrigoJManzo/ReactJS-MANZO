@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Intercambio from "./intercambio";
 
 function ItemCounter ({stock, initial, onAdd}){
     const [cont, addCount] = useState(initial)
@@ -16,44 +17,6 @@ function ItemCounter ({stock, initial, onAdd}){
 
     }}
     
-    const Intercambio = () =>{
-  
-        const[inputType, setInputTipe] = useState('button')
-        
-        const ButtonAdd = ()=>{
-
-            function onAdd(){
-                console.log(`Has agregado ${cont} items a tu carrito`)
-                setInputTipe('input')
-            }
-            return(
-    
-                <>
-                    <button className="addCart" onClick={onAdd} >Agregar al Carrito</button>
-                </>
-    
-            )
-        }
-        
-        const InputCount = () =>{
-        return(
-          <>
-                <Link to='/cart'>
-                    <button
-                        className=''
-                        onClick={()=>console.log('yendo al cart')}>
-                        IR AL CARRITO o TERMINAR COMPRA
-                    </button>
-                </Link>
-          </>
-            )
-        }
-       
-        return(
-            inputType == 'button' ? <ButtonAdd/> : <InputCount/> 
-        )
-    
-    }
 
     return(
         <div className="itemCartAdd">
