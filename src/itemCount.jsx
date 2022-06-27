@@ -1,37 +1,73 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Intercambio from "./intercambio";
 
 function ItemCounter ({stock, initial, onAdd}){
-    const [cont, addCount] = useState(initial)
+    const [cantidad, setCantidad] = useState(initial)
+
     
     function Agregar(){
-        if(cont < stock){
-            addCount(cont + 1)
+        if(cantidad < stock){
+            setCantidad(cantidad + 1)
         }        
     }
 
     function Restar(){
-        if(cont > initial){
-            addCount(cont - 1)       
+        if(cantidad > initial){
+            setCantidad(cantidad - 1)       
 
     }}
+
+    const[inputType, setInputType] = useState('button')
+
+    const addProduct = () => {
+        onAdd(cantidad)
+        console.log(`Has agregado ${cantidad} items a tu carrito`)
+        setInputType('input')
+    } 
     
 
-    return(
-        <div className="itemCartAdd">
-            <p className="counterTitle" >AGRGAR ITEMS</p>
-            <div className="counter">
-                <button className="addRemove" onClick={Agregar} > + </button>
-                <p className="counterValue" >{cont}</p>
-                <button className="addRemove" onClick={Restar} > - </button>
-            </div>
-            <div>
-                <Intercambio/>
-            </div>
-        </div>
-    )
+    if(inputType === "button"){
+        return(
+    
+            <>
+                <div className="itemCartAdd">
+                        <p className="counterTitle" >AGRGAR ITEMS</p>
+                    <div className="counter">
+                        <button className="addRemove" onClick={Agregar} > + </button>
+                        <p className="counterValue" >{cantidad}</p>
+                        <button className="addRemove" onClick={Restar} > - </button>
+                    </div>
+                    <div>
+                        <button className="addCart" onClick={addProduct} >Agregar al Carrito</button>
+                    </div>
+                </div>
+                
+            </>
+            
 
+        )
+    }          
+        
+    if( inputType === 'input' ){
+        return(
+            <>
+                <Link to ='/cart'>
+                    <button
+                        className=''
+                        onClick={()=>console.log('yendo al cart')}>
+                        IR AL CARRITO o TERMINAR COMPRA
+                    </button>
+                </Link>
+                <Link to = '/'>
+                    <button
+                    onClick={()=>console.log('Siga Comprando dijo el Juez!')}>
+                        SEGUIR COMPRANDO
+                    </button>
+                </Link>
+          </>
+        )
+    }    
+    
 }
 
 export default ItemCounter

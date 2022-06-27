@@ -5,6 +5,7 @@ import ItemListContainer from './ItemListContainer';
 import NavBar from './navbar';
 import ItemDetailContainer from './ItemDetailContainer';
 import CartWidget from './cartWidget';
+import { CartContext, CartContextProvider } from './contexts/cartContext';
 
 
 
@@ -15,18 +16,21 @@ function App (){
   
 
   return(
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route index path="/" element={<ItemListContainer/>}/>
-        <Route path="/categoria/:categoriaId" element={<ItemListContainer/>}/>
-        <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
-        <Route path="/Cart" element={<CartWidget/>}/>
+    <CartContextProvider>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route index path="/" element={<ItemListContainer/>}/>
+          <Route path="/categoria/:categoriaId" element={<ItemListContainer/>}/>
+          <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
+          <Route path="/Cart" element={<CartWidget/>}/>
 
-      <Route path="*" element={<Navigate to= '/'/>}/>
+        <Route path="*" element={<Navigate to= '/'/>}/>
 
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </CartContextProvider>
+    
     
   )
 }

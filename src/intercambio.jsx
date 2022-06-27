@@ -5,14 +5,14 @@ import { Link } from "react-router-dom"
 
 const Intercambio = () =>{
   
-    const[inputType, setInputTipe] = useState('button')
+    const[inputType, setInputType] = useState('button')
     
     const ButtonAdd = ()=>{
 
         function onAdd(){
             //console.log(`Has agregado ${cont} items a tu carrito`)
             console.log('has agregado elementos al carrito')
-            setInputTipe('input')
+            setInputType('input')
         }
         return(
 
@@ -43,5 +43,3 @@ const Intercambio = () =>{
     )
 
 }
-
-export default Intercambio

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Item } from "./items";
-import { ItemSingle } from "./items";
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
-import Intercambio from "./intercambio";
+
 
 
 export const ItemList = () =>{
@@ -70,14 +69,6 @@ export const ItemList = () =>{
                                                 </div>
                 
                                                 <div className="text-muted mb-3">{producto.modelo}</div>
-                                                
-                                                <div>
-                                                    <Intercambio/>
-                                                </div>
-
-                                                
-                                                {/* <button type="button" onClick={ItemSingle} className="btn bg-cart"><i className="fa fa-cart-plus mr-2"></i> Add to cart</button> */}
-                
                                                         
                                             </div>
                                         </div>                   
