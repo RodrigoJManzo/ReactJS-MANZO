@@ -44,7 +44,7 @@ export const ItemList = () =>{
                                     <div className="card-body">
                                         <div className="card-img-actions">
                                                             
-                                            <img src={producto.picureURL} className="card-img img-fluid" width="96" height="350" alt=""></img>
+                                            <img src={producto.pictureURL} className="card-img img-fluid" width="96" height="350" alt=""></img>
                                                             
                                                         
                                         </div>
