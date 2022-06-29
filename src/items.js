@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 let productos = [
     {
         id:"1",
+        key: "1",
         nombre: "Tarjeta de Video",
         modelo: "RTX3060",
         precio: 800,
@@ -13,6 +14,7 @@ let productos = [
     },
     {
         id:"2",
+        key: "2",
         nombre: "Monitor",
         modelo: "MSI Optix 27",
         precio: 500,
@@ -22,6 +24,7 @@ let productos = [
     },
     {
         id:"3",
+        key: "3",
         nombre: "MotherBoard",
         modelo: "MSI Plus",
         precio: 400,
@@ -31,6 +34,7 @@ let productos = [
     },
     {
         id:"4",
+        key: "4",
         nombre: "Combo Teclado y Mouse Razer",
         modelo: "Rzer Viper y Razer Chroma",
         precio: 120,
@@ -40,6 +44,7 @@ let productos = [
     },
     {
         id:"5",
+        key: "5",
         nombre: "Procesador Ryzen",
         modelo: "Ryzen 9",
         precio: 700,

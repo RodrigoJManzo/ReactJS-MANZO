@@ -12,7 +12,7 @@ export const ItemList = () =>{
     const [loading, setLoading] = useState(true)
 
     const {categoriaId} = useParams()
-    console.log(categoriaId)
+    //console.log(categoriaId)
 
     useEffect(()=>{
         if (categoriaId) {
@@ -60,7 +60,7 @@ export const ItemList = () =>{
                     
                                                 <div className="card-body bg-light text-center">
                                                     <div className="mb-2">
-                                                        <h6 className="font-weight-semibold mb-2">
+                                                        <h6  className="font-weight-semibold mb-2">
                                                             <Link to={`/detail/${producto.id}`} className="text-default mb-2" data-abc="true">{producto.nombre}</Link>
                                                         </h6>
                     
@@ -68,13 +68,6 @@ export const ItemList = () =>{
                                                     </div>
                     
                                                     <h3 className="mb-0 font-weight-semibold">{producto.precio}</h3>
-                    
-                                                    <div>
-                                                        <i className="fa fa-star star"></i>
-                                                        <i className="fa fa-star star"></i>
-                                                        <i className="fa fa-star star"></i>
-                                                        <i className="fa fa-star star"></i>
-                                                    </div>
                     
                                                     <div className="text-muted mb-3">{producto.modelo}</div>
                                                             
