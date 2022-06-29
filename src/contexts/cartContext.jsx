@@ -40,7 +40,7 @@ export const CartContextProvider = ({children} ) => {
         return (cart.reduce((acum, i)=> acum + i.cantidad, 0))
         
     };
-    console.log(IconCart())
+    //console.log(IconCart())
     
     const PriceTotal = () => {
         return (cart.reduce((acum, i) => acum + i.cantidad * i.precio, 0))

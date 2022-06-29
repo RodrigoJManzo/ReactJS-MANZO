@@ -12,7 +12,7 @@ import Carrito from './cart';
 
 
 function App (){
-   console.log('prueba de reinicio')
+   //console.log('prueba de reinicio')
   
 
   return(
