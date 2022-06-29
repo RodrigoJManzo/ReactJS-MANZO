@@ -2,13 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import {ItemSingle} from './items'
-import ItemCounter from './itemCount'
 import {useParams} from 'react-router-dom'
 import Item from './itemDetail'
 
 const ItemDetailContainer = () => {
 
   const [productos, setProductos] = useState({})
+  
+  const [loading, setLoading] = useState(true)
 
   const {id} = useParams()
  
@@ -18,10 +19,13 @@ const ItemDetailContainer = () => {
       ItemSingle()
       .then((resp)=>{setProductos(resp.find(productos=>productos.id === id))})
       .catch((err)=>console.log(err))
+      .finally(()=>setLoading(false))
     } else {
       ItemSingle()
       .then((resp)=>{setProductos(resp)})
       .catch((err)=>console.log(err))
+      .finally(()=>setLoading(false))
+
     }
     
   }, [])
@@ -30,9 +34,7 @@ const ItemDetailContainer = () => {
   return ( 
 
     <div>
-
-        <Item item={productos}/>
-        {console.log(id)}
+        {loading ? <h2>CARGANDO.... !!</h2> : <Item item={productos}/>}
 
     </div>
 

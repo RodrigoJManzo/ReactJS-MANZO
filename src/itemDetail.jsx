@@ -14,12 +14,12 @@ function Item ({item}) {
     const onAdd = (cantidad) =>{
 
         AddToCart ({...item , cantidad: cantidad});
-        console.log(item)
-        console.log(cantidad)
+        //console.log(item)
+        //console.log(cantidad)
         
 
     }
-    console.log(cart)
+    //console.log(cart)
     return(
 
         <div className='row'>

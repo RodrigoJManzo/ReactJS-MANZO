@@ -10,7 +10,6 @@ export const useCartContext = () => useContext(CartContext)
 
     const [cart, setCart] = useState([])
     
-     
 
     const AddToCart = (item) => {
 
@@ -29,9 +28,9 @@ export const useCartContext = () => useContext(CartContext)
         }    
     }
 
-
-    function DelProducto  (id) {
-        const filtrado = cart.filter((id) => cart.item.id !== id)
+   
+    const DelProducto =  (id) => {
+        const filtrado = cart.filter((producto) => producto.id !== id)
         setCart(filtrado)
        
     };

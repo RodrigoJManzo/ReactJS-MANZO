@@ -68,6 +68,6 @@ export const ItemSingle = (id) =>{
                 resolve(productos)
             }
             
-        }, 2000)
+        }, 1500)
     })
 }
