@@ -1,11 +1,10 @@
 import {useCartContext } from "./contexts/cartContext"
-import CartItem from "./cartItem";
 
 
 
 
 const Carrito = () => {
-    const{cart, producto, VaciarCarrito, PriceTotal, IconCart} = useCartContext();
+    const{cart, IconCart, PriceTotal, DelProducto, VaciarCarrito} = useCartContext();
 
         if (cart.length < 1) {
             return(
@@ -17,17 +16,22 @@ const Carrito = () => {
                 <>
                     <div className="w-50">
                         <ul>
-                            {cart.map(CartItem => <li key={producto.id}>
-                                <img className="w-25" src={producto.pictureURL} alt="" />
-                                Nombre: {producto.nombre} 
-                                Precio :{producto.precio}
-                                Catidad : {producto.cantidad}
+                            {cart.map((item) => <li  key={item.id}>
+                                <img className="w-25" src={item.pictureURL} alt="" />
+                                <spacer>--</spacer>
+                                Nombre: {item.nombre}
+                                <spacer>--</spacer>
+                                Precio :{item.precio}
+                                <spacer>--</spacer>
+                                Cantidad : {item.cantidad}
+                                <spacer>--</spacer>
+                                <button onClick={DelProducto}>Eliminar Producto</button>
                                 </li> )}
                         </ul>
                         <div>
                             <button onClick={VaciarCarrito} >VACIAR CARRITO</button>
-                            <p>El precio de los Productos a comprar es {PriceTotal}</p>
-                            {IconCart() < 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {IconCart()}</p>}
+                             <p>El precio de los Productos a comprar es US$ {PriceTotal}</p>
+                            {IconCart() <= 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {IconCart()}</p>}
                         </div>
                     </div>
 
