@@ -1,4 +1,5 @@
 import {useCartContext } from "./contexts/cartContext"
+import { Link } from "react-router-dom";
 
 
 
@@ -8,7 +9,16 @@ const Carrito = () => {
 
         if (cart.length < 1) {
             return(
-                <p>EL CARRITO ESTA VACIO</p>
+            
+            <>
+            <p>EL CARRITO ESTA VACIO</p>
+                
+                <Link to = '/'>
+                    <button>Sigue Comprando! </button>
+                </Link> 
+                
+            </>
+                
             )
             
         }else{
