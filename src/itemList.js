@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Item } from "./items";
 import {Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
-import { collection, doc, getDocs, getFirestore } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 export const ItemList = () =>{
@@ -14,14 +13,25 @@ export const ItemList = () =>{
     const {categoriaId} = useParams()
     //console.log(categoriaId)
 
-    useEffect(() => {
-      const db = getFirestore()
-      const queryCollection = collection(db, "productos")
-      getDocs(queryCollection)
-        .then (resp =>setProductos(resp.docs.map(producto => ({id: producto.id, ...producto.data()}) )))
-        .catch (err => console.log(err))
-        .finally(()=>setLoading(false))
-    }, [])
+        useEffect(() => {
+            if(categoriaId){
+                    const db = getFirestore()
+                    const queryCollection = collection(db, "productos")
+                    const queryCollectionFilter = query(queryCollection, where('categoria','==', categoriaId))
+                    getDocs(queryCollectionFilter)
+                    .then (resp =>setProductos(resp.docs.map(producto => ({categoria: producto.categoria, ...producto.data()}) )))
+                    .catch (err => console.log(err))
+                    .finally(()=>setLoading(false))
+                 }  
+                 else {
+                    const db = getFirestore()
+                    const queryCollection = collection(db, "productos")
+                    getDocs(queryCollection)
+                    .then (resp =>setProductos(resp.docs.map(producto => ({id: producto.id, ...producto.data()}) )))
+                    .catch (err => console.log(err))
+                    .finally(()=>setLoading(false))
+                }}, [categoriaId])
+
     console.log(productos)
 
 

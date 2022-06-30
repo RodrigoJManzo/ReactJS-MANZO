@@ -4,37 +4,30 @@ import { useEffect } from 'react'
 import {ItemSingle} from './items'
 import {useParams} from 'react-router-dom'
 import Item from './itemDetail'
+import { getFirestore, getDoc, doc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
-  const [productos, setProductos] = useState({})
+  const [producto, setProducto] = useState({})
   
   const [loading, setLoading] = useState(true)
 
   const {id} = useParams()
  
-
-  useEffect(()=>{
-    if (id) {
-      ItemSingle()
-      .then((resp)=>{setProductos(resp.find(productos=>productos.id === id))})
-      .catch((err)=>console.log(err))
+  useEffect(() => {
+    const db = getFirestore()
+    const queryItem = doc(db, "productos", id)
+    getDoc(queryItem)
+      .then(resp=> setProducto({id: resp.id, ...resp.data()}))
+      .catch(err=>console.log(err))
       .finally(()=>setLoading(false))
-    } else {
-      ItemSingle()
-      .then((resp)=>{setProductos(resp)})
-      .catch((err)=>console.log(err))
-      .finally(()=>setLoading(false))
-
-    }
-    
   }, [])
 
     
   return ( 
 
     <div>
-        {loading ? <h2>CARGANDO.... !!</h2> : <Item item={productos}/>}
+        {loading ? <h2>CARGANDO.... !!</h2> : <Item item={producto}/>}
 
     </div>
 
