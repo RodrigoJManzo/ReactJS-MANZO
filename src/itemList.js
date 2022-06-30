@@ -43,7 +43,7 @@ export const ItemList = () =>{
     }else{
         return(
 
-            <div className="container d-flex justify-content-center mt-50 mb-50">
+            <div className="listaObjetos container d-flex justify-content-center mt-50 mb-50">
                 <div className="row">
                 {[productos.map(producto => 
                             
