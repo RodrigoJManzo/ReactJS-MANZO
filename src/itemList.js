@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Item } from "./items";
 import {Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
-
+import { collection, doc, getDocs, getFirestore } from 'firebase/firestore'
 
 
 export const ItemList = () =>{
@@ -14,73 +14,64 @@ export const ItemList = () =>{
     const {categoriaId} = useParams()
     //console.log(categoriaId)
 
-    useEffect(()=>{
-        if (categoriaId) {
-            Item ()
-            .then((resp)=>{
-                    setProductos(resp.filter(productos=>productos.categoria === categoriaId))
-            })
-            .catch(err=> console.log(err))
-            .finally(()=>setLoading(false))
-        } else {
-            Item ()
-            .then((resp)=>{
-                    setProductos(resp)
-            })
-            .catch(err=> console.log(err))
-            .finally(()=>setLoading(false)) 
-        }
-        
-    }, [categoriaId])
+    useEffect(() => {
+      const db = getFirestore()
+      const queryCollection = collection(db, "productos")
+      getDocs(queryCollection)
+        .then (resp =>setProductos(resp.docs.map(producto => ({id: producto.id, ...producto.data()}) )))
+        .catch (err => console.log(err))
+        .finally(()=>setLoading(false))
+    }, [])
+    console.log(productos)
 
 
-    if (loading === true){
-        return(
-            <>
-              <h2>CARGANDO PRODUCTOS!......</h2>  
-            </>
-        )
-    }else{
-        return(
+     if (loading === true){
+         return(
+             <>
+               <h2>CARGANDO PRODUCTOS!......</h2>  
+             </>
+         )
+     }else{
+         return(
 
-            <div className="listaObjetos container d-flex justify-content-center mt-50 mb-50">
-                <div className="row">
-                {[productos.map(producto => 
+             <div className="listaObjetos container d-flex justify-content-center mt-50 mb-50">
+                 <div className="row">
+                 {[productos.map(producto => 
                             
-                            <div className="col-md-4 mt-2">
-                                    <div className="card">
-                                        <div className="card-body">
-                                            <div className="card-img-actions">
+                             <div className="col-md-4 mt-2">
+                                     <div className="card">
+                                         <div className="card-body">
+                                             <div className="card-img-actions">
                                                                 
-                                                <img src={producto.pictureURL} className="card-img img-fluid" width="96" height="350" alt=""></img>
+                                                 <img src={producto.pictureURL} className="card-img img-fluid" width="96" height="350" alt=""></img>
                                                                 
                                                             
-                                            </div>
-                                            </div>
+                                             </div>
+                                             </div>
                     
-                                                <div className="card-body bg-light text-center">
-                                                    <div className="mb-2">
-                                                        <h6  className="font-weight-semibold mb-2">
-                                                            <Link to={`/detail/${producto.id}`} className="text-default mb-2" data-abc="true">{producto.nombre}</Link>
-                                                        </h6>
+                                                 <div className="card-body bg-light text-center">
+                                                     <div className="mb-2">
+                                                         <h6  className="font-weight-semibold mb-2">
+                                                             <Link to={`/detail/${producto.id}`} className="text-default mb-2" data-abc="true">{producto.nombre}</Link>
+                                                         </h6>
                     
-                                                             <Link to={`/categoria/${producto.categoria}`} className="text-muted" data-abc="true">{producto.categoria}</Link>
-                                                    </div>
+                                                              <Link to={`/categoria/${producto.categoria}`} className="text-muted" data-abc="true">{producto.categoria}</Link>
+                                                     </div>
                     
-                                                    <h3 className="mb-0 font-weight-semibold">{producto.precio}</h3>
+                                                     <h3 className="mb-0 font-weight-semibold">{producto.precio}</h3>
                     
-                                                    <div className="text-muted mb-3">{producto.modelo}</div>
+                                                     <div className="text-muted mb-3">{producto.modelo}</div>
                                                             
-                                                </div>
-                                            </div>                   
-                            </div> 
+                                                 </div>
+                                             </div>                   
+                             </div> 
         
-                    )]}
-                </div>
+                     )]}
+                 </div>
                 
-            </div>
-        )
-    }
+             </div>
+         )
+     }
    
 
 }
