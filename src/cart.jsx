@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Carrito = () => {
     const{cart, IconCart, PriceTotal, DelProducto, VaciarCarrito} = useCartContext();
-
+    let agregados = IconCart()
         if (cart.length < 1) {
             return(
             
@@ -40,8 +40,8 @@ const Carrito = () => {
                         </ul>
                         <div>
                             <button onClick={VaciarCarrito} >VACIAR CARRITO</button>
-                             <p>El precio de los Productos a comprar es US$ {PriceTotal}</p>
-                            {IconCart() <= 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {IconCart()}</p>}
+                             <p>El precio de los Productos a comprar es US$ {PriceTotal()}</p>
+                            {agregados <= 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {agregados}</p>}
                         </div>
                     </div>
 
