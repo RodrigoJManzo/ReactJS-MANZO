@@ -11,7 +11,7 @@ export const CartContextProvider = ({children} ) => {
     const [cart, setCart] = useState([])
     
 
-    const AddToCart = (item) => {
+    const AddToCart = (item, cantidad) => {
 
         const IsInCart = (id) => {
             return (cart && cart.some((i) => i.id === id));
@@ -21,14 +21,11 @@ export const CartContextProvider = ({children} ) => {
              alert("El producto ya esta en el carro")
             }else{
             setCart([
-                ...cart, 
-                item    
+                ...cart, {item, cantidad}   
             ])
             console.log('se agrego el producto correctamente')       
         }    
     }
-
-    
 
     const DelProducto =  (id) => {
         const filtrado = cart.filter((producto) => producto.id !== id)

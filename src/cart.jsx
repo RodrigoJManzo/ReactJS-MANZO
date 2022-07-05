@@ -15,7 +15,7 @@ const Carrito = () => {
         order.buyer = {name:'', email: '' , phone: '' }
         order.total = PriceTotal()
 
-        order.itmes = cart.map(cartItem => {
+        order.items = cart.map(cartItem => {
             const id = cartItem.id
             const nombre = cartItem.nombre
             const precio = cartItem.precio*cartItem.cantidad
@@ -23,7 +23,14 @@ const Carrito = () => {
         })
 
         const db = getFirestore()
+
+        const orderCollection = collection(db, 'orders')
+        addDoc(orderCollection, order)
+        .then (resp => console.log(resp))
+        .catch(err=>console.log(err))
+
         const queryCollectionStock = collection(db, 'productos')
+        
 
         const queryActualizarStock = await query(
             queryCollectionStock, 
@@ -61,17 +68,17 @@ const Carrito = () => {
                 <>
                     <div className="w-50">
                         <ul>
-                            {cart.map((item) => <li  key={item.id}>
-                                <img className="w-25" src={item.pictureURL} alt="" />
-                                <spacer>--</spacer>
-                                Nombre: {item.nombre}
-                                <spacer>--</spacer>
-                                Precio :{item.precio}
-                                <spacer>--</spacer>
-                                Cantidad : {item.cantidad}
-                                <spacer>--</spacer>
-                                <button className="btn btn-outline-danger" onClick={DelProducto}>Eliminar Producto</button>
-                                </li> )}
+                            {cart.map((e) => (<li  key={e.item.id}>
+                                <img className="w-25" src={e.item.pictureURL} alt="" />
+                                
+                                Nombre: {e.item.nombre}
+                                
+                                Precio :{e.item.precio}
+                                
+                                Cantidad : {e.item.cantidad}
+                                
+                                <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.id)}>Eliminar Producto</button>
+                                </li> ))}
                         </ul>
                         <div>
                             <button className="btn btn-outline-danger" onClick={VaciarCarrito} >VACIAR CARRITO</button>

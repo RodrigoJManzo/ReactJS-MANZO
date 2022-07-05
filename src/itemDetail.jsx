@@ -13,7 +13,7 @@ function Item ({item}) {
 
     const onAdd = (cantidad) =>{
 
-        AddToCart ({...item , cantidad: cantidad});
+        AddToCart (item , cantidad);
     }
     return(
 
