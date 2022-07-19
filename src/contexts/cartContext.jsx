@@ -14,14 +14,14 @@ export const CartContextProvider = ({children} ) => {
     const AddToCart = (item, cantidad) => {
 
         const IsInCart = (id) => {
-            return (cart && cart.some((i) => i.id === id));
+            return (cart && cart.some((i) => i.item.id === id));
             };
 
          if(IsInCart(item.id)){
              alert("El producto ya esta en el carro")
             }else{
             setCart([
-                ...cart, {item, cantidad}   
+                ...cart, {item}   
             ])
             console.log('se agrego el producto correctamente')       
         }    
@@ -34,13 +34,14 @@ export const CartContextProvider = ({children} ) => {
     };
   
     const IconCart = () => {
-        return (cart.reduce((acum, i)=> acum + i.cantidad, 0))
+        return (cart.reduce((acum, i)=> acum + i.item.cantidad, 0))
         
     };
-    //console.log(IconCart())
+    console.log(cart)
+    console.log(IconCart())
     
     const PriceTotal = () => {
-        return (cart.reduce((acum, i) => acum + i.cantidad * i.precio, 0))
+        return (cart.reduce((acum, i) => acum + i.item.cantidad * i.item.precio, 0))
     };
     const VaciarCarrito = () => {
 

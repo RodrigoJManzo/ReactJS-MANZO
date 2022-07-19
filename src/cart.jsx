@@ -1,6 +1,6 @@
 import {useCartContext } from "./contexts/cartContext"
 import { Link } from "react-router-dom";
-import { addDoc, collection, doc, documentId, getDocs, getFirestore, Query, query, updateDoc, where, writeBatch } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 
 
@@ -16,9 +16,9 @@ const Carrito = () => {
         order.total = PriceTotal()
 
         order.items = cart.map(cartItem => {
-            const id = cartItem.id
-            const nombre = cartItem.nombre
-            const precio = cartItem.precio*cartItem.cantidad
+            const id = cartItem.item.id
+            const nombre = cartItem.item.nombre
+            const precio = cartItem.item.precio  * cartItem.item.cantidad
             return{id, nombre, precio}
         })
 
@@ -26,27 +26,26 @@ const Carrito = () => {
 
         const orderCollection = collection(db, 'orders')
         addDoc(orderCollection, order)
-        .then (resp => console.log(resp))
+        .then (resp => alert(`su numero de compra es ${resp.id} por $ ${resp.precio}`))
         .catch(err=>console.log(err))
+        .finally(VaciarCarrito())
 
-        const queryCollectionStock = collection(db, 'productos')
+        // const queryCollectionStock = collection(db, 'productos')
         
 
-        const queryActualizarStock = await query(
-            queryCollectionStock, 
-            where(documentId(), 'in', cart.map(it =>it.id))
-        )
+        // const queryActualizarStock = await query(
+        //     queryCollectionStock, 
+        //     where(documentId(), 'in', cart.map(it =>it.id))
+        // )
 
-        const batch = writeBatch(db)
+        // const batch = writeBatch(db)
 
-        await getDocs(queryActualizarStock)
-        .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock: res.data().stock - cart.find(item => item.id === res.id).cantidad})))
-        .finally(()=> console.log(VaciarCarrito()))
+        // await getDocs(queryActualizarStock)
+        // .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock: res.data().stock - cart.find(item => item.id === res.id).cantidad})))
+        // .finally(()=> console.log(VaciarCarrito()))
 
-        batch.commit()
+        // batch.commit()
     }
-
-
 
     let agregados = IconCart()
         if (cart.length < 1) {
@@ -69,7 +68,7 @@ const Carrito = () => {
                     <div className="w-50">
                         <ul>
                             {cart.map((e) => (<li  key={e.item.id}>
-                                <img className="w-25" src={e.item.pictureURL} alt="" />
+                                <img className="w-25" src={e.item.pictureURL} alt="foto producto" />
                                 
                                 Nombre: {e.item.nombre}
                                 
@@ -77,7 +76,7 @@ const Carrito = () => {
                                 
                                 Cantidad : {e.item.cantidad}
                                 
-                                <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.id)}>Eliminar Producto</button>
+                                <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.key)}>Eliminar Producto</button>
                                 </li> ))}
                         </ul>
                         <div>

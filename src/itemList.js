@@ -19,7 +19,7 @@ export const ItemList = () =>{
                     const queryCollection = collection(db, "productos")
                     const queryCollectionFilter = query(queryCollection, where('categoria','==', categoriaId))
                     getDocs(queryCollectionFilter)
-                    .then (resp =>setProductos(resp.docs.map(producto => ({categoria: producto.categoria, ...producto.data()}) )))
+                    .then (resp =>setProductos(resp.docs.map(producto => ({id: producto.id, ...producto.data()}) )))
                     .catch (err => console.log(err))
                     .finally(()=>setLoading(false))
                  }  

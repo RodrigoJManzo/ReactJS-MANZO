@@ -12,8 +12,9 @@ function Item ({item}) {
     const {cart, AddToCart} = useContext(CartContext)
 
     const onAdd = (cantidad) =>{
+      console.log(cantidad)
 
-        AddToCart (item , cantidad);
+        AddToCart ({...item ,cantidad: cantidad});
     }
     return(
 
