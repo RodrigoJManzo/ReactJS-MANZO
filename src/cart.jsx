@@ -52,12 +52,14 @@ const Carrito = () => {
             return(
             
             <>
-            <p>EL CARRITO ESTA VACIO</p>
+            <div className="carroVacio">
+                <p className="loadingText">EL CARRITO ESTA VACIO</p>
                 
                 <Link to = '/'>
-                    <button>Sigue Comprando! </button>
+                    <button className="btn btn-warning">Sigue Comprando! </button>
                 </Link> 
-                
+            </div>
+   
             </>
                 
             )
@@ -65,28 +67,59 @@ const Carrito = () => {
         }else{
             return(
                 <>
-                    <div className="w-50">
-                        <ul>
-                            {cart.map((e) => (<li  key={e.item.id}>
-                                <img className="w-25" src={e.item.pictureURL} alt="foto producto" />
+                    <div className="carrito container w-90">
+                        <table className="table tablaCarrito">
+                            <thead>
+                                <tr>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">US$</th>
+                                <th scope="col">Eliminar Item</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {cart.map((e) => (
+                                <tr key={e.item.id}>
+                                <th scope="row"><img className="fotoTabla" src={e.item.pictureURL} alt="" /></th>
+                                <td>{e.item.nombre}</td>
+                                <td>{e.item.cantidad}</td>
+                                <td>{e.item.precio}</td>
+                                <td><button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.key)}>Eliminar Producto</button></td>
+                                </tr>))}
+                            </tbody>
+                        </table>
+
+
+                
+                        <div className="container w-90">
+                            <table className="resumenCarro table">
                                 
-                                Nombre: {e.item.nombre}
+                                <tr>
+                                    <th>
+                                        {agregados <= 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {agregados}</p>}
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <th scope="col"><p>El precio de los Productos a comprar es US$ {PriceTotal()}</p></th>
+                                    <th scope="col"><button className="btn btn-outline-danger" onClick={VaciarCarrito} >VACIAR CARRITO</button></th>
+                                </tr>
                                 
-                                Precio :{e.item.precio}
-                                
-                                Cantidad : {e.item.cantidad}
-                                
-                                <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.key)}>Eliminar Producto</button>
-                                </li> ))}
-                        </ul>
-                        <div>
-                            <button className="btn btn-outline-danger" onClick={VaciarCarrito} >VACIAR CARRITO</button>
-                             <p>El precio de los Productos a comprar es US$ {PriceTotal()}</p>
-                            {agregados <= 1 ? <p></p> : <p>La cantidad de objetos en el Carrito es {agregados}</p>}
+                                <tr>
+                                    <th>
+                                        <button className="btn btn-outline-primary" onClick={generarOrden}>Terminar Compra</button>
+                                    </th>
+                                    <th>
+                                        <Link to='/'>
+                                            <button className="btn btn-outline-success">Seguir de Compras!</button>
+                                        </Link>
+                                    </th>
+                                </tr>
+                            </table>
+  
                         </div>
-                        <div>
-                            <button className="btn btn-outline-primary" onClick={generarOrden}>Terminar Compra</button>
-                        </div>
+                        
                     </div>
 
                 </>
@@ -99,3 +132,30 @@ const Carrito = () => {
 }
 
 export default Carrito
+
+
+
+
+
+        {/* <ul>
+                            {cart.map((e) => (
+                            <li  key={e.item.id}>
+                                <img className="w-25" src={e.item.pictureURL} alt="foto producto" />
+                                <div>
+                                    Nombre: {e.item.nombre}
+                                </div>
+
+                                <div>
+                                    Precio :{e.item.precio}
+                                </div>
+
+                                <div>
+                                    Cantidad : {e.item.cantidad}
+                                </div>
+
+                                <div>
+                                    <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.key)}>Eliminar Producto</button>
+                                </div>
+          
+                            </li> ))}
+                        </ul> */}

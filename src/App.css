@@ -93,5 +93,31 @@ body{
 .cartIcons{
   display: flex;
   margin: -0.5rem;
-  
+}
+
+.loadingText{
+  color: rgb(22, 145, 211);
+  size: 4rem;
+}
+.tablaCarrito{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+}
+.fotoTabla{
+  width: 6rem;
+}
+.resumenCarro{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carroVacio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
   return ( 
 
     <div>
-        {loading ? <h2>CARGANDO.... !!</h2> : <Item item={producto}/>}
+        {loading ? <h2 className='loadingText text-center'>CARGANDO.... !!</h2> : <Item item={producto}/>}
 
     </div>
 
