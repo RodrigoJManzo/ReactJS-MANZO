@@ -12,14 +12,18 @@ const CartWidget = () => {
     const CartFull = () => {
         return(
             <>
+            <div className='cartIcons'>
             <Link to='/Cart'>
                 <i>
                     <img className="imageCart" src={icoCart} alt="icono del Shopping Cart" />
                 </i>
             </Link>
-            <div className=''>
-                <p className = " cartIco " >{numero}</p>
+            <p className = " cartIco " >{numero}</p>
             </div>
+           
+            {/* <div className=''>
+                
+            </div> */}
         </>
         )
     }

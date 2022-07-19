@@ -31,14 +31,14 @@ function ItemCounter ({stock, initial, onAdd}){
     
             <>
                 <div className="itemCartAdd">
-                        <p className="counterTitle" >AGRGAR ITEMS</p>
+                        <p className="font-weight-bold counterTitle" >AGRGAR ITEMS</p>
                     <div className="counter">
-                        <button className="addRemove" onClick={Agregar} > + </button>
+                        <button className="btn btn-secondary addRemove" onClick={Agregar} > + </button>
                         <p className="counterValue" >{cantidad}</p>
-                        <button className="addRemove" onClick={Restar} > - </button>
+                        <button className="btn btn-secondary addRemove" onClick={Restar} > - </button>
                     </div>
                     <div>
-                        <button className="addCart" onClick={addProduct} >Agregar al Carrito</button>
+                        <button className="btn btn-success addCart" onClick={addProduct} >Agregar al Carrito</button>
                     </div>
                 </div>
                 
@@ -53,13 +53,14 @@ function ItemCounter ({stock, initial, onAdd}){
             <>
                 <Link to ='/cart'>
                     <button
-                        className=''
+                        className='btn btn-success terminarCompra'
                         onClick={()=>console.log('yendo al cart')}>
                         IR AL CARRITO o TERMINAR COMPRA
                     </button>
                 </Link>
                 <Link to = '/'>
                     <button
+                    className="btn btn-primary irAlCarrito"
                     onClick={()=>console.log('Siga Comprando dijo el Juez!')}>
                         SEGUIR COMPRANDO
                     </button>

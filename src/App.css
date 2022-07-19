@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(70, 66, 66);
+  background-color: rgb(220, 214, 214);
 }
 
 
@@ -8,16 +8,13 @@ body{
   text-decoration: none;
 };
 
-.title{
-  display: flex;
-  justify-content: space-around;
-}
 
 .card{
   border-radius: 10%;
+  min-height: 8rem;
 }
 .card-body{
-  background-color: bisque;
+  background-color: rgb(255, 255, 255);
   border-radius: 10%;
 }
 .nombreEmpresa:visited{
@@ -35,13 +32,13 @@ body{
 }
 
  .title{
-  font-size: 4rem;
+  font-size: 6rem;
   color: rgb(22, 145, 211);
 }
 
 .subTitle{
-  font-size: 2rem;
-  color: rgb(20, 185, 185);
+  font-size: 3rem;
+  color: rgb(13, 133, 15);
 }
 
 .imageCart{
@@ -49,33 +46,22 @@ body{
   width: 2.5rem;
 }
 
-
 .counterTitle{
   text-align: center;
-  color: #61dafb;
-  text-decoration: solid;
-
-
+  font-size: 1.5rem;
+  
 }
 .counter{
   display: flex;
-  border: 0.5cm, solid, black;
+ 
   justify-content: center;
 }
 
 .counterValue{
   margin-left: 2rem;
   margin-right: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-bottom: 00.5rem;
-}
-
-.addRemove{
-  width: 3rem;
-  height: 3rem;
-  background-color: #61dafb;
-  text-decoration: solid;
-  font-size: 1.5rem;
 }
 
 .itemCartAdd{
@@ -90,6 +76,22 @@ body{
 
 .cartIco{
   background-color: red;
+  width: 0.8rem;
+  opacity: 60%;
   color: white;
   border-radius: 30%;
+  text-align: center;
+}
+
+.irAlCarrito{
+  margin: 1rem;
+}
+.terminarCompra{
+  margin: 1rem;
+}
+
+.cartIcons{
+  display: flex;
+  margin: -0.5rem;
+  
 }
