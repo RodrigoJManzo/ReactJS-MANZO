@@ -27,11 +27,13 @@ function Item ({item}) {
       </div>
 
       <div className='col-md-6'>
-        <h2>Nombre: {nombre} </h2>
-        <h5>Categoría: {categoria}</h5>
-        <h3>Precio: {precio}</h3>
-        <h4>Modelo: {modelo}</h4>
-        <h5>ID: {id}</h5>
+        <ul>
+          <li><p><strong>Nombre:</strong> {nombre} </p>   </li>
+          <li><p><strong>Categoría:</strong>{categoria}</p>  </li>
+          <li><p><strong>Precio:</strong>{precio}</p>  </li>
+          <li><p><strong>Modelo:</strong> {modelo}</p> </li>
+          <li><p><strong>ID:</strong>{id}</p>  </li>
+        </ul>
         <>
         <ItemCounter stock={stock} initial = {1} onAdd = {onAdd}  />
         </>

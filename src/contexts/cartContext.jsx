@@ -28,7 +28,7 @@ export const CartContextProvider = ({children} ) => {
     }
 
     const DelProducto =  (id) => {
-        const filtrado = cart.filter((producto) => producto.id !== id)
+        const filtrado = cart.filter((item) => item.id !== id)
         setCart(filtrado)
        
     };

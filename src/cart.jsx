@@ -8,11 +8,13 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 const Carrito = () => {
     const{cart, IconCart, PriceTotal, DelProducto, VaciarCarrito} = useCartContext();
 
+    
+
     async function generarOrden(e){
         e.preventDefault()
         let order = {};
 
-        order.buyer = {name:'', email: '' , phone: '' }
+        order.buyer = {name:"" , email: "" , direccion: "" }
         order.total = PriceTotal()
 
         order.items = cart.map(cartItem => {
@@ -30,21 +32,6 @@ const Carrito = () => {
         .catch(err=>console.log(err))
         .finally(VaciarCarrito())
 
-        // const queryCollectionStock = collection(db, 'productos')
-        
-
-        // const queryActualizarStock = await query(
-        //     queryCollectionStock, 
-        //     where(documentId(), 'in', cart.map(it =>it.id))
-        // )
-
-        // const batch = writeBatch(db)
-
-        // await getDocs(queryActualizarStock)
-        // .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock: res.data().stock - cart.find(item => item.id === res.id).cantidad})))
-        // .finally(()=> console.log(VaciarCarrito()))
-
-        // batch.commit()
     }
 
     let agregados = IconCart()
@@ -107,12 +94,13 @@ const Carrito = () => {
                                 </tr>
                                 
                                 <tr>
+                                    
                                     <th>
                                         <button className="btn btn-outline-primary" onClick={generarOrden}>Terminar Compra</button>
                                     </th>
                                     <th>
                                         <Link to='/'>
-                                            <button className="btn btn-outline-success">Seguir de Compras!</button>
+                                            <button  className="btn btn-outline-success">Seguir de Compras!</button>
                                         </Link>
                                     </th>
                                 </tr>
@@ -132,30 +120,3 @@ const Carrito = () => {
 }
 
 export default Carrito
-
-
-
-
-
-        {/* <ul>
-                            {cart.map((e) => (
-                            <li  key={e.item.id}>
-                                <img className="w-25" src={e.item.pictureURL} alt="foto producto" />
-                                <div>
-                                    Nombre: {e.item.nombre}
-                                </div>
-
-                                <div>
-                                    Precio :{e.item.precio}
-                                </div>
-
-                                <div>
-                                    Cantidad : {e.item.cantidad}
-                                </div>
-
-                                <div>
-                                    <button className="btn btn-outline-danger" onClick={()=>DelProducto(e.item.key)}>Eliminar Producto</button>
-                                </div>
-          
-                            </li> ))}
-                        </ul> */}
