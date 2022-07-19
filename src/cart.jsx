@@ -26,7 +26,7 @@ const Carrito = () => {
 
         const orderCollection = collection(db, 'orders')
         addDoc(orderCollection, order)
-        .then (resp => alert(`su numero de compra es ${resp.id} por $ ${resp.precio}`))
+        .then (resp => alert(`su numero de compra es ${resp.id} por $ ${PriceTotal()}`))
         .catch(err=>console.log(err))
         .finally(VaciarCarrito())
 
